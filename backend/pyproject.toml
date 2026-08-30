@@ -29,4 +29,4 @@ testpaths = ["tests"]
 [tool.vercel]
 # app/main.py defines `app = FastAPI(...)` — this tells Vercel's Python runtime
 # where the ASGI app lives, since it's nested under app/ rather than at the repo root.
-entrypoint = "app/main.py"
+entrypoint = "app.main:app"
