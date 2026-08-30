@@ -1,0 +1,36 @@
+# Replit configuration — condo_ module, combined single-URL deployment.
+#
+# This runs ONE process that builds the frontend, then starts FastAPI, which
+# serves both the API (/api/..., /docs) and the built React app itself (see the
+# static-file block at the bottom of backend/app/main.py) — one Replit URL for
+# everything, matching the PhilCEB Hosting Guide's "multiple routes under the
+# same domain" recommendation.
+#
+# Before the very first Run: create your Neon (or other) Postgres database and
+# set DATABASE_URL / JWT_SECRET_KEY / JWT_ALGORITHM / JWT_EXPIRE_MINUTES /
+# CORS_ORIGINS in Replit's "Secrets" tab. alembic upgrade head runs automatically
+# on every start below — it's additive/idempotent, so re-running it is safe.
+#
+# No `entrypoint` field on purpose — with two languages in this repo (Python
+# backend, JS frontend), letting Replit infer a "primary" entry file caused it
+# to assume the wrong project root during deployment. `run` / `[deployment].run`
+# below are explicit, so nothing needs to be inferred.
+
+run = "bash start.sh"
+
+modules = ["python-3.11", "nodejs-22"]
+
+[nix]
+channel = "stable-24_05"
+
+[env]
+PYTHONUNBUFFERED = "1"
+PIP_DISABLE_PIP_VERSION_CHECK = "1"
+
+[deployment]
+run = ["bash", "start.sh"]
+deploymentTarget = "autoscale"
+
+[[ports]]
+localPort = 8080
+externalPort = 80
