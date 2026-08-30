@@ -187,7 +187,8 @@ export default function SuperadminPortal() {
               Add / edit users →
             </Link>
           </div>
-          <table className="w-full text-sm">
+          <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[480px]">
             <thead>
               <tr className="text-left text-gray-500 text-xs uppercase border-b border-gray-100">
                 <th className="px-4 py-3 font-medium">Name</th>
@@ -210,6 +211,7 @@ export default function SuperadminPortal() {
             </tbody>
           </table>
         </div>
+      </div>
       )}
 
       {tab === 'billing' && (

@@ -62,7 +62,8 @@ export default function OwnerPortal() {
         <div className="p-4 border-b border-gray-100">
           <h2 className="font-semibold text-ink">My Units</h2>
         </div>
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[560px]">
           <thead>
             <tr className="text-left text-gray-500 text-xs uppercase border-b border-gray-100">
               <th className="px-4 py-3 font-medium">Unit</th>
@@ -101,6 +102,7 @@ export default function OwnerPortal() {
             })}
           </tbody>
         </table>
+        </div>
       </div>
 
       <div className="bg-white rounded-xl border border-gray-200 shadow-sm">
@@ -111,7 +113,8 @@ export default function OwnerPortal() {
           </div>
           <Link to="/payments" className="text-primary text-xs font-medium hover:underline">Go to Payments →</Link>
         </div>
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+        <table className="w-full text-sm min-w-[520px]">
           <thead>
             <tr className="text-left text-gray-500 text-xs uppercase border-b border-gray-100">
               <th className="px-4 py-3 font-medium">Unit</th>
@@ -136,6 +139,7 @@ export default function OwnerPortal() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </Layout>
   )

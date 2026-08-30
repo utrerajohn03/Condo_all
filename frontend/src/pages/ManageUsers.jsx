@@ -152,7 +152,8 @@ export default function ManageUsers() {
           </div>
         </div>
 
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+          <table className="w-full text-sm min-w-[560px]">
           <thead>
             <tr className="text-left text-gray-500 text-xs uppercase border-b border-gray-100">
               <th className="px-4 py-3 font-medium">Name</th>
@@ -188,7 +189,8 @@ export default function ManageUsers() {
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
 
         <div className="flex items-center justify-between px-4 py-3 text-xs text-gray-500">
           <span>Showing {filtered.length} of {users.length}</span>

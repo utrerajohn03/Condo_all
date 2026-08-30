@@ -132,7 +132,8 @@ export default function BillManagement() {
           ))}
         </div>
 
-        <table className="w-full text-sm mt-2">
+        <div className="overflow-x-auto mt-2">
+          <table className="w-full text-sm min-w-[720px]">
           <thead>
             <tr className="text-left text-gray-500 text-xs uppercase border-b border-gray-100">
               <th className="px-4 py-3 font-medium">Unit</th>
@@ -171,7 +172,8 @@ export default function BillManagement() {
               </tr>
             ))}
           </tbody>
-        </table>
+          </table>
+        </div>
       </div>
 
       {showCreate && canManage && (
